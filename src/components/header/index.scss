@@ -1,0 +1,52 @@
+@import '../../assets/_colors';
+
+header {
+  position: relative;
+
+  .header-image {
+    width: 100%;
+  }
+
+  .logo-cont {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10em;
+
+    .slider-cont {
+      display: flex;
+      align-items: center;
+
+      .slider {
+        background-color: white;
+        height: 1.4em;
+        width: 2.8em;
+        border-radius: 10em;
+        margin: 0 1em;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .circle {
+          height: 1em;
+          width: 1em;
+          background-color: $primary-color;
+          position: absolute;
+          border-radius: 10em;
+          transition: all 0.5s ease;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          .circle {
+            background-color: $light-purple;
+          }
+        }
+      }
+    }
+  }
+}
