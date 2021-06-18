@@ -57,12 +57,12 @@
     }
 
     .position {
-      color: rgba(25, 32, 45, 1);
+      color: $dark_theme_primary;
       margin: 1em 0;
       font-size: 20px;
 
       &:hover {
-        color: rgba(110, 128, 152, 1);
+        color: $primary-text;
         cursor: pointer;
       }
     }
@@ -88,7 +88,7 @@
         color: white;
 
         &:hover {
-          color: rgba(110, 128, 152, 1);
+          color: $primary-text;
         }
       }
     }

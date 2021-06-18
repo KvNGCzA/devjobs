@@ -87,7 +87,7 @@
           color: $dark_theme_primary;
           font-weight: 700;
           font-size: 28px;
-          margin: 0.6em 0;
+          margin: 0.3em 0;
         }
 
         .location {
@@ -142,47 +142,101 @@
   }
 }
 
-  footer {
-    height: 6em;
-    width: 100vw;
-    background-color: white;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+footer {
+  height: 6em;
+  width: 100vw;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    .company-info {
-      width: 52vw;
-      text-align: left;
-      display: inherit;
-      align-items: inherit;
-      justify-content: space-between;
+  .company-info {
+    width: 52vw;
+    text-align: left;
+    display: inherit;
+    align-items: inherit;
+    justify-content: space-between;
 
-      div {
-        display: flex;
-        flex-direction: column;
+    div {
+      display: flex;
+      flex-direction: column;
 
-        .position {
-          font-size: 20px;
-          font-weight: 700;
-          color: $dark_theme_primary;
-          margin-bottom: 0.5em;
-        }
+      .position {
+        font-size: 20px;
+        font-weight: 700;
+        color: $dark_theme_primary;
+        margin-bottom: 0.5em;
+      }
 
-        .company {
-          font-size: 16px;
-          color: $primary-text;
-        }
+      .company {
+        font-size: 16px;
+        color: $primary-text;
       }
     }
   }
+}
 
 .dark {
   .job-body {
     .company-info {
       background-color: $dark_theme_primary;
+
+      .more-info {
+        .company-meta {
+          .company-name {
+            color: white;
+          }
+        }
+      }
+    }
+
+    .job-description {
+      background-color: $dark_theme_primary;
+
+      .job-heading {
+        & > div {
+          .position {
+            color: white;
+          }
+
+          .span, .location {
+            color: $dark_theme_primary_text;
+          }
+        } 
+      }
+
+      h4 {
+        color: white;
+      }
+
+      p {
+        color: $dark_theme_primary_text;
+      }
+
+      ul, ol {
+        li {
+          color: $dark_theme_primary_text;
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: $dark_theme_primary;
+
+    .company-info {
+      div {
+        .position {
+          color: white;
+        }
+
+        .company {
+          color: $dark_theme_primary_text;
+        }
+      }
     }
   }
 }
