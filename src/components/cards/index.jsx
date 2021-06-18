@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './index.scss';
 import Logos from '../../assets/logos';
 
@@ -9,18 +10,21 @@ const Card = ({
   location,
   logoBackground,
   logo,
+  id
 }) => (
-  <div className='job-card'>
-    <div className='logo-cont' style={{ background: logoBackground }}>
-      <Logos name={logo} />
+  <Link to={`/job/${id}`} className='card-wrapper'>
+    <div className='job-card'>
+      <div className='logo-cont' style={{ background: logoBackground }}>
+        <Logos name={logo} />
+      </div>
+      <div className='meta'>
+        <span>{postedAt}</span>•<span>{contract}</span>
+      </div>
+      <p className='position'>{position}</p>
+      <p className='company'>{company}</p>
+      <p className='location'>{location}</p>
     </div>
-    <div className='meta'>
-      <span>{postedAt}</span>•<span>{contract}</span>
-    </div>
-    <p className='position'>{position}</p>
-    <p className='company'>{company}</p>
-    <p className='location'>{location}</p>
-  </div>
+  </Link>
 );
 
 const Cards = ({ data }) => {

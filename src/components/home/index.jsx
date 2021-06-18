@@ -4,7 +4,7 @@ import { ReactComponent as Location } from '../../assets/icons/icon-location.svg
 import { ReactComponent as Search } from '../../assets/icons/icon-search.svg';
 import Cards from '../cards';
 
-const Body = () => {
+const Home = () => {
   const [jobData, setjobData] = useState([]);
 
   useEffect(() => {
@@ -56,4 +56,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Home;

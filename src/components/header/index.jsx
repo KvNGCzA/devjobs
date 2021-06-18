@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './index.scss';
 import { ReactComponent as HeaderBackground } from '../../assets/images/bg-pattern-header.svg';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
@@ -36,7 +37,7 @@ const Header = () => {
     <header>
       <HeaderBackground className='header-image' />
       <div className='logo-cont'>
-        <Logo />
+        <Link to='/'><Logo /></Link>
         <div className='slider-cont'>
           <Sun />
           <div className='slider' onClick={handleTheme}>
