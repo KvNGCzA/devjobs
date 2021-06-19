@@ -7,6 +7,8 @@ const Modal = ({
   checked,
   handleCheckbox,
   setshowModal,
+  handleByLocation,
+  byLocation,
 }) => (
   <div
     className={`modal-overlay${showModal ? ' visible' : ''}`}
@@ -15,7 +17,12 @@ const Modal = ({
     <div className='modal'>
       <div className='filter-cont'>
         <Location />
-        <input type='text' placeholder='Filter by location…' />
+        <input
+          type='text'
+          placeholder='Filter by location…'
+          onChange={handleByLocation}
+          value={byLocation}
+        />
       </div>
 
       <div>

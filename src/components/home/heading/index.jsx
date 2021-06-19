@@ -3,11 +3,25 @@ import { ReactComponent as Search } from '../../../assets/icons/icon-search.svg'
 import { ReactComponent as Filter } from '../../../assets/icons/icon-filter.svg';
 import { ReactComponent as Check } from '../../../assets/icons/icon-check.svg';
 
-const Heading = ({ setshowModal, showModal, checked, handleCheckbox }) => (
+const Heading = ({
+  setshowModal,
+  showModal,
+  checked,
+  handleCheckbox,
+  handleByTitle,
+  byTitle,
+  handleByLocation,
+  byLocation,
+}) => (
   <div className='heading'>
     <div>
       <Search className='search-icon-desktop' fill='#5964E0' />
-      <input type='text' placeholder='Filter by title, companies, expertise…' />
+      <input
+        type='text'
+        placeholder='Filter by title, companies, expertise…'
+        onChange={handleByTitle}
+        value={byTitle}
+      />
       <Filter
         className='filter'
         fill='#6E8098'
@@ -20,7 +34,12 @@ const Heading = ({ setshowModal, showModal, checked, handleCheckbox }) => (
 
     <div>
       <Location />
-      <input type='text' placeholder='Filter by location…' />
+      <input
+        type='text'
+        placeholder='Filter by location…'
+        onChange={handleByLocation}
+        value={byLocation}
+      />
     </div>
 
     <div className='checkbox-cont'>
