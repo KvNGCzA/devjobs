@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+
 import './index.scss';
+import Cards from '../cards';
 import { ReactComponent as Location } from '../../assets/icons/icon-location.svg';
 import { ReactComponent as Search } from '../../assets/icons/icon-search.svg';
 import { ReactComponent as Filter } from '../../assets/icons/icon-filter.svg';
-import Cards from '../cards';
 
 const Home = () => {
-  const [jobData, setjobData] = useState([]);
+  const [jobData, setJobData] = useState([]);
+  const [modalState, setModalState] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -14,15 +16,19 @@ const Home = () => {
         let data = await fetch('data.json');
         data = await data.json();
 
-        setjobData(data);
+        setJobData(data);
       } catch (error) {
         console.log(error);
-        setjobData([]);
+        setJobData([]);
       }
     };
 
     getData();
   }, []);
+
+  const handleCloseOverlay = e => {
+    e.target.classList[0] === 'modal-overlay' && setModalState(false);
+  };
 
   return (
     <div className='body'>
@@ -33,7 +39,11 @@ const Home = () => {
             type='text'
             placeholder='Filter by title, companies, expertise…'
           />
-          <Filter className='filter' fill='#6E8098' />
+          <Filter
+            className='filter'
+            fill='#6E8098'
+            onClick={() => setModalState(!modalState)}
+          />
           <button className='search-icon-mobile'>
             <Search fill='#FFF' />
           </button>
@@ -56,6 +66,36 @@ const Home = () => {
       <div className='main'>
         <Cards data={jobData} />
         <button className='btn btn--default load-more'>load more</button>
+      </div>
+
+      <div
+        className='modal-overlay'
+        style={{
+          display: modalState ? 'flex' : 'none',
+        }}
+        onClick={handleCloseOverlay}
+      >
+        <div className='modal'>
+          <div className='filter-cont'>
+            <Location />
+            <input type='text' placeholder='Filter by location…' />
+          </div>
+
+          <div>
+            <div className='checkbox-cont'>
+              <div className='checkbox'>
+                <input type='checkbox' />
+              </div>
+              <span>full time only</span>
+            </div>
+            <button
+              className='btn btn--default'
+              onClick={() => setModalState(!modalState)}
+            >
+              search
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
