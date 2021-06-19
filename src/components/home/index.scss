@@ -12,16 +12,30 @@
     padding: 0 1em;
 
     .checkbox {
-      background-color: #19202d;
+      background-color: rgba(25, 32, 45, 0.1);
       border-radius: 3px;
-      opacity: 0.1;
       height: 1.6em;
       min-width: 1.6em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.checked {
+        background-color: $primary-color;
+      }
 
       input {
-        visibility: hidden;
+        position: absolute;
+        opacity: 0;
         height: 100%;
         width: 100%;
+        left: 0;
+        top: 0;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
@@ -43,7 +57,7 @@
       display: flex;
       align-items: center;
       flex: 1;
-      padding: 0 3em;
+      padding: 0 2em;
 
       .filter,
       .search-icon-mobile {
@@ -75,6 +89,7 @@
         flex: 1;
         font-size: 16px;
         caret-color: $primary-color;
+        background-color: transparent;
 
         &::placeholder {
           color: rgba(25, 32, 45, 0.5);
@@ -102,6 +117,11 @@
     background-color: rgba(0, 0, 0, 0.4);
     align-items: center;
     justify-content: center;
+    display: none;
+
+    &.visible {
+      display: none;
+    }
 
     .modal {
       background-color: white;
@@ -156,7 +176,11 @@
 
       .checkbox-cont {
         .checkbox {
-          background-color: rgba(255, 255, 255, 0.7);
+          background-color: rgba(255, 255, 255, 0.1);
+
+          &.checked {
+            background-color: $primary-color;
+          }
         }
 
         span {
@@ -169,7 +193,6 @@
           fill: white !important;
         }
         input[type='text'] {
-          background-color: transparent;
           color: rgba(255, 255, 255, 1);
 
           &::placeholder {
@@ -198,7 +221,11 @@
           color: white;
 
           .checkbox {
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.1);
+
+            &.checked {
+              background-color: $primary-color;
+            }
           }
         }
       }
@@ -270,6 +297,12 @@
 
       .checkbox-cont {
         display: none;
+      }
+    }
+
+    .modal-overlay {
+      &.visible {
+        display: flex;
       }
     }
   }

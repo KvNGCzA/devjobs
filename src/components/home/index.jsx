@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
 import './index.scss';
+import Heading from './heading';
 import Cards from '../cards';
-import { ReactComponent as Location } from '../../assets/icons/icon-location.svg';
-import { ReactComponent as Search } from '../../assets/icons/icon-search.svg';
-import { ReactComponent as Filter } from '../../assets/icons/icon-filter.svg';
+import Modal from '../modal';
 
 const Home = () => {
   const [jobData, setJobData] = useState([]);
-  const [modalState, setModalState] = useState(false);
+  const [showModal, setshowModal] = useState(false);
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -27,76 +27,34 @@ const Home = () => {
   }, []);
 
   const handleCloseOverlay = e => {
-    e.target.classList[0] === 'modal-overlay' && setModalState(false);
+    e.target.classList[0] === 'modal-overlay' && setshowModal(false);
+  };
+
+  const handleCheckbox = () => {
+    setChecked(!checked);
   };
 
   return (
     <div className='body'>
-      <div className='heading'>
-        <div>
-          <Search className='search-icon-desktop' fill='#5964E0' />
-          <input
-            type='text'
-            placeholder='Filter by title, companies, expertise…'
-          />
-          <Filter
-            className='filter'
-            fill='#6E8098'
-            onClick={() => setModalState(!modalState)}
-          />
-          <button className='search-icon-mobile'>
-            <Search fill='#FFF' />
-          </button>
-        </div>
-
-        <div>
-          <Location />
-          <input type='text' placeholder='Filter by location…' />
-        </div>
-
-        <div className='checkbox-cont'>
-          <div className='checkbox'>
-            <input type='checkbox' />
-          </div>
-          <span>full time only</span>
-          <button className='btn btn--default'>search</button>
-        </div>
-      </div>
+      <Heading
+        setshowModal={setshowModal}
+        showModal={showModal}
+        checked={checked}
+        handleCheckbox={handleCheckbox}
+      />
 
       <div className='main'>
         <Cards data={jobData} />
         <button className='btn btn--default load-more'>load more</button>
       </div>
 
-      <div
-        className='modal-overlay'
-        style={{
-          display: modalState ? 'flex' : 'none',
-        }}
-        onClick={handleCloseOverlay}
-      >
-        <div className='modal'>
-          <div className='filter-cont'>
-            <Location />
-            <input type='text' placeholder='Filter by location…' />
-          </div>
-
-          <div>
-            <div className='checkbox-cont'>
-              <div className='checkbox'>
-                <input type='checkbox' />
-              </div>
-              <span>full time only</span>
-            </div>
-            <button
-              className='btn btn--default'
-              onClick={() => setModalState(!modalState)}
-            >
-              search
-            </button>
-          </div>
-        </div>
-      </div>
+      <Modal
+        showModal={showModal}
+        handleCloseOverlay={handleCloseOverlay}
+        checked={checked}
+        handleCheckbox={handleCheckbox}
+        setshowModal={setshowModal}
+      />
     </div>
   );
 };
