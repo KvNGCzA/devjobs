@@ -10,7 +10,7 @@
 }
 
 .job-body {
-  width: 52vw;
+  width: 48em;
   position: relative;
   top: -2.6em;
   padding-bottom: 6em;
@@ -113,7 +113,8 @@
       text-transform: capitalize;
     }
 
-    ul, ol {
+    ul,
+    ol {
       margin: 0 0 2em 1em;
 
       li {
@@ -202,10 +203,11 @@ footer {
             color: white;
           }
 
-          .span, .location {
+          .span,
+          .location {
             color: $dark_theme_primary_text;
           }
-        } 
+        }
       }
 
       h4 {
@@ -216,7 +218,8 @@ footer {
         color: $dark_theme_primary_text;
       }
 
-      ul, ol {
+      ul,
+      ol {
         li {
           color: $dark_theme_primary_text;
         }

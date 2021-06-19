@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import './index.scss';
-import { ReactComponent as HeaderBackground } from '../../assets/images/bg-pattern-header.svg';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { ReactComponent as Sun } from '../../assets/icons/icon-sun.svg';
 import { ReactComponent as Moon } from '../../assets/icons/icon-moon.svg';
@@ -35,12 +35,21 @@ const Header = () => {
 
   return (
     <header>
-      <HeaderBackground className='header-image' />
+      <div className='header-image' />
       <div className='logo-cont'>
-        <Link to='/'><Logo /></Link>
+        <Link to='/'>
+          <Logo />
+        </Link>
         <div className='slider-cont'>
           <Sun />
-          <div className='slider' onClick={handleTheme}>
+          <div
+            className='slider'
+            style={{
+              backgroundColor:
+                theme === 'dark' ? 'rgba(25, 32, 45, 1)' : 'white',
+            }}
+            onClick={handleTheme}
+          >
             <div className='circle' style={switchStyle[theme]}></div>
           </div>
           <Moon />

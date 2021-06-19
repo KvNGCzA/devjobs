@@ -1,7 +1,7 @@
 @import '../../assets/_colors';
 
 .body {
-  width: 80vw;
+  width: 73em;
   position: relative;
   top: -2.6em;
 
@@ -23,7 +23,7 @@
         border-radius: 3px;
         opacity: 0.1;
         height: 1.6em;
-        width: 1.6em;
+        min-width: 1.6em;
 
         input {
           visibility: hidden;
@@ -45,6 +45,19 @@
       flex: 1;
       padding: 0 3em;
 
+      .filter,
+      .search-icon-mobile {
+        display: none;
+        margin-left: 2em;
+      }
+
+      .search-icon-mobile {
+        background-color: $primary-color;
+        border: 0;
+        border-radius: 5px;
+        padding: 1em;
+      }
+
       &:first-child {
         min-width: 40.191%;
       }
@@ -65,6 +78,7 @@
 
         &::placeholder {
           color: rgba(25, 32, 45, 0.5);
+          text-overflow: ellipsis;
         }
       }
     }
@@ -96,6 +110,9 @@
       }
 
       & > div {
+        .filter {
+          fill: white !important;
+        }
         input[type='text'] {
           background-color: transparent;
           color: rgba(255, 255, 255, 1);
@@ -103,6 +120,80 @@
           &::placeholder {
             color: rgba(255, 255, 255, 0.5);
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1234px) {
+  .body {
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .body {
+    .heading {
+      & > div {
+        padding: 0 1em;
+        display: grid;
+        grid-template-columns: auto auto auto;
+
+        &:first-child {
+          min-width: auto;
+        }
+
+        input[type='text'] {
+          width: 80%;
+        }
+      }
+
+      .checkbox-cont {
+        span {
+          width: 4.4em;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        button {
+          padding: 1em;
+        }
+      }
+    }
+
+    .main {
+      top: 4em;
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .body {
+    .heading {
+      & > div {
+        display: none;
+
+        &:first-child {
+          display: flex;
+        }
+
+        .filter,
+        .search-icon-mobile {
+          display: block;
+        }
+
+        .search-icon-desktop {
+          display: none;
+        }
+      }
+
+      .checkbox-cont {
+        display: none;
+        span {
+        }
+
+        button {
         }
       }
     }

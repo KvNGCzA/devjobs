@@ -94,3 +94,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .cards-cont {
+    grid-template-columns: auto auto;
+    grid-column-gap: 14px;
+    grid-row-gap: 42px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .cards-cont {
+    grid-template-columns: auto;
+    grid-column-gap: 14px;
+    grid-row-gap: 42px;
+  }
+}
