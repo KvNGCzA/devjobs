@@ -7,237 +7,320 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.job-body {
-  width: 48em;
-  position: relative;
-  top: -2.6em;
-  padding-bottom: 6em;
-
-  .company-info {
-    background-color: white;
-    height: 8.75em;
-    width: 100%;
-    display: flex;
-    border-radius: 6px;
-
-    .logo-cont {
-      height: 100%;
-      width: 12em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom-left-radius: 6px;
-    }
-
-    .more-info {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      justify-content: space-between;
-      padding: 0 2em;
-
-      .company-meta {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-
-        .company-name {
-          font-weight: 700;
-          color: $dark_theme_primary;
-          font-size: 24px;
-          margin-bottom: 0.7em;
-        }
-
-        .company-site {
-          color: $primary-text;
-          font-size: 16px;
-        }
-      }
-    }
-  }
-
-  .job-description {
-    top: 3em;
+  .job-body {
+    width: 48em;
     position: relative;
-    text-align: left;
-    background-color: white;
-    padding: 3em;
-    margin-bottom: 5em;
-    border-radius: 6px;
-
-    .job-heading {
+    top: -2.6em;
+    padding-bottom: 6em;
+  
+    .company-info {
+      background-color: white;
+      height: 8.75em;
       width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      & > div {
-        span {
-          color: $primary-text;
-          font-size: 16px;
-
-          &:nth-child(2) {
-            margin: 0 0.7em;
+      border-radius: 6px;
+  
+      .logo-cont {
+        height: 100%;
+        width: 12em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom-left-radius: 6px;
+      }
+  
+      .more-info {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 2em;
+  
+        .company-meta {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+  
+          .company-name {
+            font-weight: 700;
+            color: $dark_theme_primary;
+            font-size: 24px;
+            margin-bottom: 0.7em;
+          }
+  
+          .company-site {
+            color: $primary-text;
+            font-size: 16px;
           }
         }
-
-        .position {
-          color: $dark_theme_primary;
-          font-weight: 700;
-          font-size: 28px;
-          margin: 0.3em 0;
-        }
-
-        .location {
-          color: $primary-color;
-          font-weight: 700;
-          font-size: 14px;
-        }
       }
     }
-
-    p {
-      color: $primary-text;
-      line-height: 2em;
-    }
-
-    .description {
-      margin: 3em 0;
-    }
-
-    h4 {
-      font-size: 20px;
-      margin-bottom: 1em;
-      text-transform: capitalize;
-    }
-
-    ul,
-    ol {
-      margin: 0 0 2em 1em;
-
-      li {
+  
+    .job-description {
+      top: 3em;
+      position: relative;
+      text-align: left;
+      background-color: white;
+      padding: 3em;
+      margin-bottom: 5em;
+      border-radius: 6px;
+  
+      .job-heading {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        & > div {
+          span {
+            color: $primary-text;
+            font-size: 16px;
+  
+            &:nth-child(2) {
+              margin: 0 0.7em;
+            }
+          }
+  
+          .position {
+            color: $dark_theme_primary;
+            font-weight: 700;
+            font-size: 28px;
+            margin: 0.3em 0;
+          }
+  
+          .location {
+            color: $primary-color;
+            font-weight: 700;
+            font-size: 14px;
+          }
+        }
+      }
+  
+      p {
         color: $primary-text;
-        margin: 1em 0;
         line-height: 2em;
       }
+  
+      .description {
+        margin: 3em 0;
+      }
+  
+      h4 {
+        font-size: 20px;
+        margin-bottom: 1em;
+        text-transform: capitalize;
+      }
+  
+      ul,
+      ol {
+        margin: 0 0 2em 1em;
+  
+        li {
+          color: $primary-text;
+          margin: 1em 0;
+          line-height: 2em;
+        }
+      }
+  
+      ol {
+        margin: 0 0 2em;
+        list-style: none;
+        counter-reset: my-awesome-counter;
+  
+        li {
+          counter-increment: my-awesome-counter;
+  
+          &::before {
+            content: counter(my-awesome-counter);
+            color: $primary-color;
+            font-weight: 700;
+            margin-right: 1em;
+          }
+        }
+      }
     }
-
-    ol {
-      margin: 0 0 2em;
-      list-style: none;
-      counter-reset: my-awesome-counter;
-
-      li {
-        counter-increment: my-awesome-counter;
-
-        &::before {
-          content: counter(my-awesome-counter);
-          color: $primary-color;
+  }
+  
+  footer {
+    height: 6em;
+    width: 100vw;
+    background-color: white;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    .company-info {
+      width: 48em;
+      text-align: left;
+      display: inherit;
+      align-items: inherit;
+      justify-content: space-between;
+  
+      div {
+        display: flex;
+        flex-direction: column;
+  
+        .position {
+          font-size: 20px;
           font-weight: 700;
-          margin-right: 1em;
+          color: $dark_theme_primary;
+          margin-bottom: 0.5em;
+        }
+  
+        .company {
+          font-size: 16px;
+          color: $primary-text;
         }
       }
     }
   }
 }
 
-footer {
-  height: 6em;
-  width: 100vw;
-  background-color: white;
-  left: 0;
-  bottom: 0;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .company-info {
-    width: 52vw;
-    text-align: left;
-    display: inherit;
-    align-items: inherit;
-    justify-content: space-between;
-
-    div {
-      display: flex;
-      flex-direction: column;
-
-      .position {
-        font-size: 20px;
-        font-weight: 700;
-        color: $dark_theme_primary;
-        margin-bottom: 0.5em;
-      }
-
-      .company {
-        font-size: 16px;
-        color: $primary-text;
-      }
-    }
-  }
-}
 
 .dark {
-  .job-body {
-    .company-info {
-      background-color: $dark_theme_primary;
-
-      .more-info {
-        .company-meta {
-          .company-name {
-            color: white;
+  .page-cont {
+    .job-body {
+      .company-info {
+        background-color: $dark_theme_primary;
+  
+        .more-info {
+          .company-meta {
+            .company-name {
+              color: white;
+            }
           }
         }
       }
-    }
-
-    .job-description {
-      background-color: $dark_theme_primary;
-
-      .job-heading {
-        & > div {
-          .position {
-            color: white;
+  
+      .job-description {
+        background-color: $dark_theme_primary;
+  
+        .job-heading {
+          & > div {
+            .position {
+              color: white;
+            }
+  
+            span {
+              color: $dark_theme_primary_text;
+            }
           }
-
-          .span,
-          .location {
+        }
+  
+        h4 {
+          color: white;
+        }
+  
+        p {
+          color: $dark_theme_primary_text;
+        }
+  
+        ul,
+        ol {
+          li {
             color: $dark_theme_primary_text;
           }
         }
       }
-
-      h4 {
-        color: white;
-      }
-
-      p {
-        color: $dark_theme_primary_text;
-      }
-
-      ul,
-      ol {
-        li {
-          color: $dark_theme_primary_text;
+    }
+  
+    footer {
+      background-color: $dark_theme_primary;
+  
+      .company-info {
+        div {
+          .position {
+            color: white;
+          }
+  
+          .company {
+            color: $dark_theme_primary_text;
+          }
         }
       }
     }
   }
+}
 
-  footer {
-    background-color: $dark_theme_primary;
+@media only screen and (max-width: 854px) {
+  .page-cont {
+    .job-body {
+      width: 90vw;
+    }
 
-    .company-info {
-      div {
-        .position {
-          color: white;
+    footer {
+      .company-info {
+        width: 90vw;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .page-cont {
+    .job-body {
+      .company-info {
+        position: relative;
+        height: auto;
+        padding: 3em;
+        justify-content: center;
+
+        .logo-cont {
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          border-radius: 15px;
+          top: -1.7em;
+        }
+        
+        .more-info {
+          flex-direction: column;
+          
+          .company-meta {
+            text-align: center;
+          }
+
+          .company-site {
+            margin-bottom: 2em;
+          }
+
+          button {
+            color: $primary-color;
+          }
+        }
+      }
+
+      .job-description {
+        .job-heading {
+          flex-direction: column;
+          align-items: flex-start;
+
+          div {
+            margin-bottom: 3em;
+          }
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    footer {
+      .company-info {
+        align-items: center;
+        justify-content: center;
+
+        div {
+          display: none;
         }
 
-        .company {
-          color: $dark_theme_primary_text;
+        button {
+          width: 100%;
         }
       }
     }
